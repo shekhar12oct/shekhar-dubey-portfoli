@@ -8,7 +8,7 @@ const skills = [
   {
     category: 'Frontend',
     color: 'from-violet-500 to-purple-600',
-    items: ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 'SASS', 'Tailwind CSS', 'Bootstrap'],
+    items: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'SASS', 'Tailwind CSS', 'Bootstrap', 'Responsive UI'],
   },
   {
     category: 'State & Testing',
@@ -84,7 +84,7 @@ const About = () => {
                 Shekhar Dubey
               </h3>
               <p className={`font-medium mb-5 ${darkMode ? 'text-violet-300' : 'text-violet-600'}`}>
-                Senior Frontend Engineer &middot; React, TypeScript, UI Architecture &amp; Performance
+                Senior Frontend Engineer &middot; React, JavaScript, UI Architecture &amp; Performance
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-2 mb-5 text-sm">
@@ -132,7 +132,7 @@ const About = () => {
                   6 years of experience
                 </strong>{' '}
                 building scalable, high-performance web applications using React.js, JavaScript,
-                TypeScript, Redux, and modern frontend architectures. Strong expertise in
+                Redux, and modern frontend architectures. Strong expertise in
                 component-driven development, micro-frontend architecture, reusable UI systems,
                 testing automation, REST API integration, Core Web Vitals optimization, and
                 production-grade enterprise interfaces.

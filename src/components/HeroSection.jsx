@@ -133,7 +133,7 @@ const HeroSection = () => {
                   darkMode ? 'text-cyan-300' : 'text-cyan-600'
                 }`}
               >
-                TypeScript
+                JavaScript
               </span>
               , Redux, and performance-first UI architecture. 6+ years building scalable,
               enterprise-grade interfaces with code splitting, Core Web Vitals optimization,
@@ -273,7 +273,7 @@ const HeroSection = () => {
                       darkMode ? 'text-white' : 'text-gray-800'
                     }`}
                   >
-                    React + TS
+                    React + JS
                   </p>
                 </div>
               </motion.div>
