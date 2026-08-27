@@ -5,11 +5,25 @@ import { useSelector } from 'react-redux';
 
 const experiences = [
   {
+    role: 'Senior Frontend Engineer',
+    company: 'Ailytics',
+    period: 'July 2026 \u2013 August 2026',
+    badge: 'Remote',
+    badgeColor: 'text-rose-400',
+    gradient: 'from-rose-500 to-pink-600',
+    accent: 'text-rose-400',
+    highlights: [
+      'Developed a real-time security compliance dashboard to monitor, analyze, and visualize camera-generated alerts.',
+      'Designed and implemented end-to-end use case logic flows for zone-based camera monitoring, including geofenced area definitions for automated threat detection.',
+      'Built automated alert-triggering flows that reduced manual surveillance overhead and improved incident response time.',
+    ],
+  },
+  {
     role: 'Senior Software Engineer',
     company: 'WiseTech Global',
-    period: 'April 2024 \u2013 Present',
-    badge: 'Current',
-    badgeColor: 'text-green-400',
+    period: 'April 2024 \u2013 May 2026',
+    badge: '2 Years',
+    badgeColor: 'text-cyan-400',
     gradient: 'from-violet-500 to-purple-600',
     accent: 'text-violet-400',
     highlights: [
@@ -25,7 +39,7 @@ const experiences = [
   {
     role: 'Senior Software Engineer',
     company: 'Blume Global',
-    period: '2021 \u2013 2024',
+    period: 'May 2021 \u2013 March 2024',
     badge: '3 Years',
     badgeColor: 'text-cyan-400',
     gradient: 'from-cyan-500 to-blue-600',
@@ -42,7 +56,7 @@ const experiences = [
   {
     role: 'Project Engineer',
     company: 'Wipro Limited',
-    period: '2019 \u2013 2021',
+    period: 'June 2019 \u2013 May 2021',
     badge: '2 Years',
     badgeColor: 'text-emerald-400',
     gradient: 'from-emerald-500 to-teal-600',

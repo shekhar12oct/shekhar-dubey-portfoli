@@ -8,22 +8,22 @@ const skills = [
   {
     category: 'Frontend',
     color: 'from-violet-500 to-purple-600',
-    items: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'SASS', 'Tailwind CSS', 'Bootstrap', 'Responsive UI'],
+    items: ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'Next.js (SSR/SSG/App Router)', 'HTML5', 'CSS3', 'SASS', 'Tailwind CSS'],
   },
   {
-    category: 'State & Testing',
+    category: 'State, Data & Testing',
     color: 'from-cyan-500 to-blue-600',
-    items: ['Redux', 'Context API', 'Jest', 'React Testing Library', 'Playwright', 'Unit Testing', 'Integration Testing', 'End-to-End Testing'],
+    items: ['Redux', 'Redux Toolkit', 'Context API', 'React Query / TanStack Query', 'Jest', 'React Testing Library', 'Playwright', '80%+ Test Coverage'],
   },
   {
     category: 'Architecture & Performance',
     color: 'from-emerald-500 to-teal-600',
-    items: ['Micro Frontends', 'Module Federation', 'Scalable UI Architecture', 'Code Splitting', 'Lazy Loading', 'List Virtualization', 'Core Web Vitals'],
+    items: ['Micro Frontends', 'Module Federation', 'Design Systems', 'Storybook', 'Component-Driven Dev', 'Monorepo', 'Code Splitting', 'Lazy Loading', 'List Virtualization', 'Core Web Vitals'],
   },
   {
-    category: 'Build, Platform & Practices',
+    category: 'A11y, Tooling & Practices',
     color: 'from-amber-500 to-orange-600',
-    items: ['Webpack', 'Babel', 'Vite', 'NPM', 'Git', 'GitHub', 'REST APIs', 'Agile', 'Scrum', 'SDLC', 'Code Reviews', 'Debugging'],
+    items: ['WCAG 2.1 AA', 'ARIA', 'Webpack', 'Vite', 'GitHub Actions (CI/CD)', 'Git', 'REST APIs', 'Application Security', 'Agile', 'Code Reviews'],
   },
 ];
 
@@ -84,7 +84,7 @@ const About = () => {
                 Shekhar Dubey
               </h3>
               <p className={`font-medium mb-5 ${darkMode ? 'text-violet-300' : 'text-violet-600'}`}>
-                Senior Frontend Engineer &middot; React, JavaScript, UI Architecture &amp; Performance
+                Senior Frontend Engineer &middot; React, Next.js, TypeScript &amp; Frontend System Design
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-2 mb-5 text-sm">
@@ -129,13 +129,13 @@ const About = () => {
                 </strong>{' '}
                 with over{' '}
                 <strong className={darkMode ? 'text-violet-300' : 'text-violet-600'}>
-                  6 years of experience
+                  7+ years of experience
                 </strong>{' '}
-                building scalable, high-performance web applications using React.js, JavaScript,
-                Redux, and modern frontend architectures. Strong expertise in
-                component-driven development, micro-frontend architecture, reusable UI systems,
-                testing automation, REST API integration, Core Web Vitals optimization, and
-                production-grade enterprise interfaces.
+                building scalable, high-performance web applications using React.js, Next.js,
+                and TypeScript. Strong expertise in frontend system design, micro-frontend
+                architecture (Module Federation), reusable design systems, testing automation,
+                REST API integration, Core Web Vitals optimization, and production-grade
+                enterprise interfaces.
               </p>
             </div>
           </div>

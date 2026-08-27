@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, Heart, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUpRight, Download, ArrowRight } from 'lucide-react';
 import { useSelector } from 'react-redux';
+import resume from '../files/resume.pdf';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -27,6 +28,52 @@ const Footer = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Prominent CTA banner */}
+        <div
+          className="relative overflow-hidden rounded-3xl p-8 md:p-12 mb-14 bg-gradient-to-br from-violet-600 via-fuchsia-600 to-cyan-500 shadow-2xl shadow-violet-500/25"
+        >
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+            }}
+          />
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white mb-4">
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                Open to new opportunities
+              </p>
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                Let&apos;s build something great together
+              </h3>
+              <p className="text-white/80 max-w-md">
+                Hiring a Senior Frontend Engineer? I&apos;d love to hear about your team and what you&apos;re building.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="group flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-violet-700 bg-white hover:-translate-y-0.5 transition-all duration-300 shadow-lg"
+              >
+                Get in Touch
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a
+                href={resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-white/10 border border-white/30 hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <Download size={18} />
+                Resume
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>

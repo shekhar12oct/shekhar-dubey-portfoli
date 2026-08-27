@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../features/theme/themeSlice';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, Download } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import resume from '../files/resume.pdf';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -17,6 +19,8 @@ const Navbar = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.3 });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -60,6 +64,15 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
+          <a
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-md shadow-violet-500/20 hover:shadow-violet-500/40 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <Download size={15} />
+            Resume
+          </a>
           <button
             onClick={() => dispatch(toggleTheme())}
             className={`ml-2 p-2.5 rounded-xl transition-all duration-300 ${
@@ -105,6 +118,16 @@ const Navbar = () => {
                 {link.name}
               </NavLink>
             ))}
+            <a
+              href={resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center justify-center gap-2 mt-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-md shadow-violet-500/20"
+            >
+              <Download size={15} />
+              Download Resume
+            </a>
             <button
               onClick={() => dispatch(toggleTheme())}
               className={`w-full mt-1 flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
@@ -117,6 +140,11 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      <motion.div
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-400"
+      />
     </nav>
   );
 };

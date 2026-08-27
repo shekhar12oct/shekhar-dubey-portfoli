@@ -21,24 +21,26 @@ const App = () => {
       {darkMode && (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           <div
-            className="absolute -top-48 -right-48 w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
+            className="absolute -top-48 -right-48 w-[600px] h-[600px] rounded-full blur-3xl opacity-40"
             style={{ background: 'radial-gradient(circle, #7c3aed, transparent)' }}
           />
           <div
-            className="absolute top-1/2 -left-48 w-[450px] h-[450px] rounded-full blur-3xl opacity-10 animate-float"
+            className="absolute top-1/2 -left-48 w-[550px] h-[550px] rounded-full blur-3xl opacity-25 animate-float"
             style={{ background: 'radial-gradient(circle, #06b6d4, transparent)' }}
           />
           <div
-            className="absolute -bottom-48 right-1/3 w-[400px] h-[400px] rounded-full blur-3xl opacity-15 animate-float-delayed"
-            style={{ background: 'radial-gradient(circle, #6d28d9, transparent)' }}
+            className="absolute -bottom-48 right-1/3 w-[500px] h-[500px] rounded-full blur-3xl opacity-30 animate-float-delayed"
+            style={{ background: 'radial-gradient(circle, #d946ef, transparent)' }}
           />
           {/* Subtle grid pattern */}
           <div
-            className="absolute inset-0 opacity-30"
+            className="absolute inset-0 opacity-40"
             style={{
               backgroundImage:
-                'linear-gradient(rgba(139,92,246,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.07) 1px, transparent 1px)',
+                'linear-gradient(rgba(139,92,246,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.09) 1px, transparent 1px)',
               backgroundSize: '60px 60px',
+              maskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)',
             }}
           />
         </div>
