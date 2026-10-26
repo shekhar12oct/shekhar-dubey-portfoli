@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, Download, Code2, Calendar, Building2, Rows3, ShieldCheck, GitBranch, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight, Github, Linkedin, Mail, Download, Code2, Calendar, Building2, Rows3, ShieldCheck, GitBranch, CheckCircle2, Zap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import resume from '../files/resume.pdf';
@@ -8,9 +8,11 @@ import resume from '../files/resume.pdf';
 const codeLines = [
   [{ t: 'const ', c: 'kw' }, { t: 'engineer', c: 'var' }, { t: ': ', c: 'punc' }, { t: 'Developer', c: 'type' }, { t: ' = {', c: 'punc' }],
   [{ t: '  name', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'Shekhar Dubey'", c: 'str' }, { t: ',', c: 'punc' }],
-  [{ t: '  role', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'Senior Frontend Engineer'", c: 'str' }, { t: ',', c: 'punc' }],
+  [{ t: '  role', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'Frontend Engineering Lead'", c: 'str' }, { t: ',', c: 'punc' }],
+  [{ t: '  growingInto', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'Product & AI-Native Engineering'", c: 'str' }, { t: ',', c: 'punc' }],
   [{ t: '  stack', c: 'prop' }, { t: ': [', c: 'punc' }, { t: "'React'", c: 'str' }, { t: ', ', c: 'punc' }, { t: "'Next.js'", c: 'str' }, { t: ', ', c: 'punc' }, { t: "'TypeScript'", c: 'str' }, { t: '],', c: 'punc' }],
   [{ t: '  experience', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'7+ years'", c: 'str' }, { t: ',', c: 'punc' }],
+  [{ t: '  exploringNext', c: 'prop' }, { t: ': [', c: 'punc' }, { t: "'RAG'", c: 'str' }, { t: ', ', c: 'punc' }, { t: "'LLM Systems'", c: 'str' }, { t: '],', c: 'punc' }],
   [{ t: '  status', c: 'prop' }, { t: ': ', c: 'punc' }, { t: "'available_for_hire'", c: 'str' }, { t: ',', c: 'punc' }],
   [{ t: '};', c: 'punc' }],
   [],
@@ -55,16 +57,91 @@ const socials = [
 ];
 
 const stats = [
-  { value: '7+', label: 'Years Experience', icon: Calendar },
-  { value: '4', label: 'Companies', icon: Building2 },
-  { value: '10k+', label: 'Rows Virtualized', icon: Rows3 },
-  { value: '80%+', label: 'Test Coverage', icon: ShieldCheck },
+  {
+    value: '7+',
+    label: 'Years Experience',
+    detail: 'Frontend → Product & AI',
+    icon: Calendar,
+    gradient: 'from-violet-500 to-purple-600',
+    glow: 'rgba(124,58,237,0.25)',
+  },
+  {
+    value: '4',
+    label: 'Companies',
+    detail: 'Startups to enterprise',
+    icon: Building2,
+    gradient: 'from-cyan-500 to-blue-600',
+    glow: 'rgba(6,182,212,0.25)',
+  },
+  {
+    value: '40%',
+    label: 'Load Time Reduced',
+    detail: 'Code splitting & virtualization',
+    icon: Zap,
+    gradient: 'from-rose-500 to-pink-600',
+    glow: 'rgba(244,63,94,0.25)',
+  },
+  {
+    value: '10k+',
+    label: 'Rows Virtualized',
+    detail: 'Without UI jank',
+    icon: Rows3,
+    gradient: 'from-emerald-500 to-teal-600',
+    glow: 'rgba(16,185,129,0.25)',
+  },
+  {
+    value: '80%+',
+    label: 'Test Coverage',
+    detail: 'Jest, RTL & Playwright',
+    icon: ShieldCheck,
+    gradient: 'from-amber-500 to-orange-600',
+    glow: 'rgba(245,158,11,0.25)',
+  },
+  {
+    value: '3',
+    label: 'Engineers Led',
+    detail: 'Reviews, standards & roadmap',
+    icon: Users,
+    gradient: 'from-indigo-500 to-violet-600',
+    glow: 'rgba(99,102,241,0.25)',
+  },
 ];
+
+const CountUp = ({ value, duration = 1.4 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const [display, setDisplay] = useState(value.replace(/[\d.]+/, '0'));
+
+  useEffect(() => {
+    if (!isInView) return;
+    const match = value.match(/^([\d.]+)(.*)$/);
+    if (!match) {
+      setDisplay(value);
+      return;
+    }
+    const [, numStr, suffix] = match;
+    const target = parseFloat(numStr);
+    const isInt = Number.isInteger(target);
+    const start = performance.now();
+    let frame;
+    const tick = (now) => {
+      const progress = Math.min((now - start) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      setDisplay(`${isInt ? Math.round(current) : current.toFixed(1)}${suffix}`);
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [isInView, value, duration]);
+
+  return <span ref={ref}>{display}</span>;
+};
 
 const techStack = [
   'React.js', 'Next.js', 'TypeScript', 'JavaScript ES6+', 'Redux Toolkit',
   'TanStack Query', 'Tailwind CSS', 'Module Federation', 'Jest', 'Playwright',
-  'Storybook', 'GitHub Actions', 'Webpack', 'Vite',
+  'Storybook', 'GitHub Actions', 'Webpack', 'Vite', 'AI-Native SDLC', 'Product Engineering',
 ];
 
 const HeroSection = () => {
@@ -143,7 +220,7 @@ const HeroSection = () => {
                 }`}
               >
                 <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
-                Senior Frontend Engineer
+                Frontend Engineering Lead &middot; Growing into Product &amp; AI-Native Engineering
               </div>
             </motion.div>
 
@@ -171,8 +248,10 @@ const HeroSection = () => {
                 TypeScript
               </span>
               , and performance-first UI architecture. 7+ years building scalable,
-              enterprise-grade interfaces with micro-frontends, Core Web Vitals optimization,
-              testing automation, and modern frontend system design.
+              enterprise-grade interfaces &mdash; now extending that frontend foundation into
+              product and AI-native engineering, piloting AI-assisted workflows across the SDLC,
+              with a growing interest in exploring deeper AI/ML systems such as RAG and LLM-powered
+              applications down the line.
             </motion.p>
 
             {/* CTA buttons */}
@@ -379,30 +458,53 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-20"
         >
-          {stats.map(({ value, label, icon: Icon }) => (
-            <div
-              key={label}
-              className={`flex flex-col items-center text-center gap-2 py-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
-                darkMode
-                  ? 'glass hover:border-violet-500/30'
-                  : 'bg-white border border-gray-100 shadow-md hover:shadow-lg'
-              }`}
-            >
-              <Icon size={18} className={darkMode ? 'text-violet-400' : 'text-violet-500'} />
-              <p
-                className={`text-3xl md:text-4xl font-black ${
-                  darkMode ? 'gradient-text' : 'gradient-text-light'
-                }`}
-              >
-                {value}
-              </p>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                {label}
-              </p>
-            </div>
-          ))}
+          <p
+            className={`text-center text-xs font-semibold uppercase tracking-widest mb-6 ${
+              darkMode ? 'text-gray-500' : 'text-gray-400'
+            }`}
+          >
+            By the numbers
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            {stats.map(({ value, label, detail, icon: Icon, gradient, glow }) => (
+              <div key={label} className="group relative">
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"
+                  style={{ background: glow }}
+                />
+                <div
+                  className={`relative flex items-center gap-4 p-5 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 ${
+                    darkMode
+                      ? 'glass group-hover:border-white/20'
+                      : 'bg-white border border-gray-100 shadow-md group-hover:shadow-xl'
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
+                  >
+                    <Icon size={20} className="text-white" />
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <p
+                      className={`text-2xl md:text-3xl font-black leading-tight ${
+                        darkMode ? 'gradient-text' : 'gradient-text-light'
+                      }`}
+                    >
+                      <CountUp value={value} />
+                    </p>
+                    <p className={`text-sm font-semibold ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}>
+                      {label}
+                    </p>
+                    <p className={`text-xs truncate ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                      {detail}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Tech stack marquee */}
@@ -417,7 +519,7 @@ const HeroSection = () => {
               darkMode ? 'text-gray-500' : 'text-gray-400'
             }`}
           >
-            Technologies I work with
+            Technologies &amp; practices I work with
           </p>
           <div
             className="pause-on-hover relative overflow-hidden"

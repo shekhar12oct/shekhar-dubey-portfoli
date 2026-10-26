@@ -25,7 +25,14 @@ const skills = [
     color: 'from-amber-500 to-orange-600',
     items: ['WCAG 2.1 AA', 'ARIA', 'Webpack', 'Vite', 'GitHub Actions (CI/CD)', 'Git', 'REST APIs', 'Application Security', 'Agile', 'Code Reviews'],
   },
+  {
+    category: 'Product & AI-Native Engineering',
+    color: 'from-rose-500 to-pink-600',
+    items: ['Product-Minded Frontend Architecture', 'AI-Assisted Development (Copilot, Claude)', 'AI-Native SDLC Piloting', 'Cross-functional Collaboration', 'Technical Direction & Mentoring'],
+  },
 ];
+
+const exploringNext = ['RAG', 'LLM-Powered Applications', 'AI Agents', 'Broader AI/ML Systems'];
 
 const containerVariants = {
   hidden: {},
@@ -84,7 +91,7 @@ const About = () => {
                 Shekhar Dubey
               </h3>
               <p className={`font-medium mb-5 ${darkMode ? 'text-violet-300' : 'text-violet-600'}`}>
-                Senior Frontend Engineer &middot; React, Next.js, TypeScript &amp; Frontend System Design
+                Frontend Engineering Lead &middot; Growing into Product &amp; AI-Native Engineering
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-2 mb-5 text-sm">
@@ -125,7 +132,7 @@ const About = () => {
               <p className={`leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 Results-driven{' '}
                 <strong className={darkMode ? 'text-white' : 'text-gray-900'}>
-                  Senior Frontend Engineer
+                  Frontend Engineering Lead
                 </strong>{' '}
                 with over{' '}
                 <strong className={darkMode ? 'text-violet-300' : 'text-violet-600'}>
@@ -135,7 +142,11 @@ const About = () => {
                 and TypeScript. Strong expertise in frontend system design, micro-frontend
                 architecture (Module Federation), reusable design systems, testing automation,
                 REST API integration, Core Web Vitals optimization, and production-grade
-                enterprise interfaces.
+                enterprise interfaces. Now extending that foundation into product and
+                AI-native engineering &mdash; piloting AI-assisted SDLC workflows (code review,
+                test generation, documentation, ticket-to-code) in production &mdash; with a
+                genuine, growing interest in going deeper into AI/ML systems such as RAG and
+                LLM-powered applications over time.
               </p>
             </div>
           </div>
@@ -207,6 +218,32 @@ const About = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Exploring next */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <p className={`text-xs font-semibold uppercase tracking-widest mb-3 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+              Exploring next
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {exploringNext.map((item) => (
+                <span
+                  key={item}
+                  className={`px-3 py-1 rounded-lg text-xs font-medium border border-dashed ${
+                    darkMode
+                      ? 'text-gray-400 border-white/20'
+                      : 'text-gray-500 border-gray-300'
+                  }`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

@@ -5,17 +5,19 @@ import { useSelector } from 'react-redux';
 
 const experiences = [
   {
-    role: 'Senior Frontend Engineer',
-    company: 'Ailytics',
-    period: 'July 2026 \u2013 August 2026',
-    badge: 'Remote',
+    role: 'Frontend Engineering Lead',
+    company: 'Masters India',
+    period: 'September 2026 \u2013 Present',
+    badge: 'Current',
     badgeColor: 'text-rose-400',
     gradient: 'from-rose-500 to-pink-600',
     accent: 'text-rose-400',
     highlights: [
-      'Developed a real-time security compliance dashboard to monitor, analyze, and visualize camera-generated alerts.',
-      'Designed and implemented end-to-end use case logic flows for zone-based camera monitoring, including geofenced area definitions for automated threat detection.',
-      'Built automated alert-triggering flows that reduced manual surveillance overhead and improved incident response time.',
+      'Drive frontend architecture decisions for the GST returns and GST reconciliation modules, defining component structure, state management, and data-handling patterns for high-volume, compliance-critical tax data.',
+      'Lead a phased UI revamp of GST Reconciliation, modernizing the look and feel and building a reusable component system so new designs ship incrementally without disrupting live GST workflows.',
+      'Pilot an AI-native SDLC approach across the team\u2019s workflow, integrating AI into code review, test generation, documentation, and ticket-to-code to improve engineering velocity.',
+      'Build AI-driven automation flows for repetitive dev tasks such as boilerplate generation, PR summaries, and QA checks, with guardrails around review, testing, and security to keep quality high.',
+      'Own frontend technical direction for 3 engineers, including code reviews, standards, and roadmap planning in collaboration with product, design, and backend teams.',
     ],
   },
   {

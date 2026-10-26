@@ -50,7 +50,7 @@ const Footer = () => {
                 Let&apos;s build something great together
               </h3>
               <p className="text-white/80 max-w-md">
-                Hiring a Senior Frontend Engineer? I&apos;d love to hear about your team and what you&apos;re building.
+                Hiring a Frontend Engineering Lead growing into Product &amp; AI-Native Engineering? I&apos;d love to hear about your team and what you&apos;re building.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -94,7 +94,7 @@ const Footer = () => {
                 darkMode ? 'text-gray-500' : 'text-gray-500'
               }`}
             >
-              Senior Front-End Developer specializing in React.js and modern,
+              Frontend Engineering Lead specializing in React.js and modern,
               high-performance web applications.
             </p>
           </div>

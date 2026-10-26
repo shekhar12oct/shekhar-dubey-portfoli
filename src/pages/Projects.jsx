@@ -5,6 +5,19 @@ import { useSelector } from 'react-redux';
 
 const projects = [
   {
+    title: 'GST Returns & Reconciliation Platform',
+    tech: ['React.js', 'Component Architecture', 'State Management', 'Compliance UI'],
+    description:
+      'Drove frontend architecture for GST returns and GST reconciliation modules, shaping how a compliance-critical tax platform handles high-volume data while staying fast and reliable for day-to-day filing workflows.',
+    details: [
+      'Defined component structure, state management, and data-handling patterns suited to large, compliance-critical GST datasets.',
+      'Led a phased UI revamp of GST Reconciliation, building a reusable component system so new designs could ship incrementally without disrupting live workflows.',
+      'Piloted an AI-native SDLC across the team, weaving AI into code review, test generation, documentation, and ticket-to-code to raise engineering velocity.',
+    ],
+    gradient: 'from-rose-500 to-pink-600',
+    glow: 'rgba(244,63,94,0.25)',
+  },
+  {
     title: 'Shipment Tracking Dashboard',
     tech: ['React.js', 'REST APIs', 'Real-Time UI', 'Logistics Workflows'],
     description:
